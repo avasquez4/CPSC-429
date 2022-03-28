@@ -1,0 +1,7 @@
+Obese,Smoker,ALC,Risk
+true,false,true,low
+true,true,true,high
+true,false,true,low
+false,true,true,high
+false,true,false,low
+false,true,true,high

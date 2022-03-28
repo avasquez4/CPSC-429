@@ -1,0 +1,77 @@
+{'STREAM': array(['FALSE', 'TRUE'], dtype='<U8'), 'SLOPE': array(['flat', 'moderate', 'steep'], dtype='<U8'), 'ELEVATION': array(['high', 'highest', 'low', 'medium'], dtype='<U8')}
+Feature Data:  [['FALSE', 'steep', 'high'], ['TRUE', 'moderate', 'low'], ['TRUE', 'steep', 'medium'], ['FALSE', 'steep', 'medium'], ['FALSE', 'flat', 'high'], ['TRUE', 'steep', 'highest'], ['TRUE', 'steep', 'high']]
+Class Data: ['chaparral', 'riparian', 'riparian', 'chaparral', 'conifer', 'conifer', 'chaparral']
+feature Names:  ['STREAM', 'SLOPE', 'ELEVATION']
+Tree stored as a dictionary:  {'ELEVATION': {'high': {'SLOPE': {'flat': 'conifer', 'moderate': 'chaparral', 'steep': 'chaparral'}}, 'highest': 
+'conifer', 'low': 'riparian', 'medium': {'STREAM': {'FALSE': 'chaparral', 'TRUE': 'riparian'}}}}
+
+-------------------
+Decision Tree Model:
+-------------------
+
+ ELEVATION = high
+         SLOPE = flat
+                 -> VEGETATION = conifer
+         SLOPE = moderate
+                 -> VEGETATION = chaparral
+         SLOPE = steep
+                 -> VEGETATION = chaparral
+ ELEVATION = highest
+         -> VEGETATION = conifer
+ ELEVATION = low
+         -> VEGETATION = riparian
+ ELEVATION = medium
+         STREAM = FALSE
+                 -> VEGETATION = chaparral
+         STREAM = TRUE 
+                 -> VEGETATION = riparian
+
+Prediction Accuracy:  100.0
+
+{'Outlook': array(['Overcast', 'Rain', 'Sunny'], dtype='<U8'), 'Temp': array(['Cool', 'Hot', 'Mild'], dtype='<U8'), 'Humid': array(['High', 'Normal'], dtype='<U8'), 'Wind': array(['Strong', 'Weak'], dtype='<U8')}
+Feature Data:  [['Sunny', 'Hot', 'High', 'Weak'], ['Sunny', 'Hot', 'High', 'Strong'], ['Overcast', 'Hot', 'High', 'Weak'], ['Rain', 'Mild', 'High', 'Weak'], ['Rain', 'Cool', 'Normal', 'Weak'], ['Rain', 'Cool', 'Normal', 'Strong'], ['Overcast', 'Cool', 'Normal', 'Strong'], ['Sunny', 'Mild', 'High', 'Weak'], ['Sunny', 'Cool', 'Normal', 'Weak'], ['Rain', 'Mild', 'Normal', 'Weak'], ['Sunny', 'Mild', 'Normal', 'Strong'], ['Overcast', 'Mild', 'High', 'Strong']]
+Class Data: ['No', 'No', 'Yes', 'Yes', 'Yes', 'No', 'Yes', 'No', 'Yes', 'Yes', 'Yes', 'Yes']
+feature Names:  ['Outlook', 'Temp', 'Humid', 'Wind']
+Tree stored as a dictionary:  {'Outlook': {'Overcast': 'Yes', 'Rain': {'Wind': {'Strong': 'No', 'Weak': 'Yes'}}, 'Sunny': {'Temp': {'Cool': 'Yes', 'Hot': 'No', 'Mild': {'Humid': {'High': 'No', 'Normal': 'Yes'}}}}}}
+
+-------------------
+Decision Tree Model:
+-------------------
+
+ Outlook = Overcast
+         -> Play = Yes
+ Outlook = Rain
+         Wind = Strong
+                 -> Play = No
+         Wind = Weak
+                 -> Play = Yes
+ Outlook = Sunny
+         Temp = Cool
+                 -> Play = Yes
+         Temp = Hot
+                 -> Play = No
+         Temp = Mild
+                 Humid = High
+                         -> Play = No
+                 Humid = Normal
+                         -> Play = Yes
+
+Prediction Accuracy:  100.0
+
+{'Suspiciouswords': array(['FALSE', 'TRUE'], dtype='<U5'), 'UnknownSender': array(['FALSE', 'TRUE'], dtype='<U5'), 'ContainingImages': array(['FALSE', 'TRUE'], dtype='<U5')}
+Feature Data:  [['TRUE', 'FALSE', 'TRUE'], ['TRUE', 'TRUE', 'FALSE'], ['TRUE', 'TRUE', 'FALSE'], ['FALSE', 'TRUE', 'TRUE'], ['FALSE', 'FALSE', 
+'FALSE'], ['FALSE', 'FALSE', 'FALSE']]
+Class Data: ['spam', 'spam', 'spam', 'ham', 'ham', 'ham']
+feature Names:  ['Suspiciouswords', 'UnknownSender', 'ContainingImages']
+Tree stored as a dictionary:  {'Suspiciouswords': {'FALSE': 'ham', 'TRUE': 'spam'}}
+
+-------------------
+Decision Tree Model:
+-------------------
+
+ Suspiciouswords = FALSE
+         -> Class = ham
+ Suspiciouswords = TRUE
+         -> Class = spam
+
+Prediction Accuracy:  100.0
